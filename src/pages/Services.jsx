@@ -18,11 +18,10 @@ const Services = () => {
     const updateAnimation = () => {
       const totalWidth = horizontal.scrollWidth;
       const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
       const scrollDistance = totalWidth - viewportWidth;
 
-      // Set the container height to match the total scroll distance needed
-      gsap.set(container, { height: totalWidth });
+      // Set the container height to be the scroll distance
+      gsap.set(container, { height: scrollDistance });
 
       // Kill any existing animation and its ScrollTrigger
       if (tween) {
@@ -37,8 +36,9 @@ const Services = () => {
         scrollTrigger: {
           trigger: container,
           start: 'top top',
-          end: () => `+=${totalWidth}`,
+          end: () => `+=${scrollDistance}`,
           pin: true,
+          pinSpacing: false, // Prevent extra space from being added
           scrub: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,

@@ -1,4 +1,3 @@
-// src/pages/Navbar.jsx
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import bercLogo from '../assets/general/berc-logo.jpeg';

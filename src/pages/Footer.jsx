@@ -1,37 +1,39 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// src/pages/Footer.jsx
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
   faLinkedin,
   faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
-import logo from "../assets/general/berc-wh.png";
+} from '@fortawesome/free-brands-svg-icons';
+import logo from '../assets/general/berc-wh.png';
 import {
   faMapMarkerAlt,
   faEnvelope,
   faPhone,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <div className="bg-[#026EB5] text-white py-12">
+    <footer className="bg-[#026EB5] text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap items-center space-y-4 md:space-y-0">
+        {/* Logo and Newsletter Section */}
+        <div className="flex flex-wrap items-center justify-between space-y-8 md:space-y-0">
           {/* Logo Section */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start">
             <img src={logo} alt="BERC Logo" className="h-24 mr-4" />
           </div>
 
           {/* Newsletter Sign-up Section */}
-          <div className="w-full md:w-1/2 text-center">
+          <div className="w-full md:w-1/2 text-center md:text-right">
             <h6 className="text-lg font-bold">Subscribe for Updates</h6>
-            <form className="mt-4 flex justify-center items-center space-x-2">
+            <form className="mt-4 flex justify-center md:justify-end items-center space-x-2">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -53,10 +55,10 @@ const Footer = () => {
           <div className="w-full md:w-1/2">
             <h2 className="text-xl font-bold">Contact Information:</h2>
             <div className="mt-6 space-y-4">
-              <div className="flex items-center">
+              <div className="flex items-start">
                 <FontAwesomeIcon
                   icon={faMapMarkerAlt}
-                  className="text-2xl mr-4"
+                  className="text-2xl mr-4 mt-1"
                 />
                 <p className="text-base font-light">
                   CISNR New Academic Block, Basement, UET, Peshawar, Khyber
@@ -91,17 +93,11 @@ const Footer = () => {
 
         {/* Links in Horizontal Line */}
         <div className="flex justify-center mt-8 space-x-6">
-          {[
-            "Home",
-            "About Us",
-            "Services",
-            "Our Impact",
-            "Contact",
-          ].map((link) => (
+          {['Home', 'About Us', 'Services', 'Our Impact', 'News Events', 'Team', 'Gallery'].map((link) => (
             <button
               key={link}
               onClick={() =>
-                scrollToSection(link.toLowerCase().replace(" ", "-"))
+                scrollToSection(link.toLowerCase().replace(' ', '-'))
               }
               className="text-white hover:underline hover:underline-offset-4 transition"
             >
@@ -115,16 +111,25 @@ const Footer = () => {
           <a
             href="https://www.facebook.com/people/Buildings-Energy-Research-Center/61557251373408/"
             className="hover:text-gray-400"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faFacebook} size="lg" />
           </a>
           <a
             href="https://www.linkedin.com/company/buildings-energy-research-center/"
             className="hover:text-gray-400"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FontAwesomeIcon icon={faLinkedin} size="lg" />
           </a>
-          <a href="https://www.youtube.com/" className="hover:text-gray-400">
+          <a
+            href="https://www.youtube.com/"
+            className="hover:text-gray-400"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FontAwesomeIcon icon={faYoutube} size="lg" />
           </a>
         </div>
@@ -136,7 +141,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
