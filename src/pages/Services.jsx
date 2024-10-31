@@ -1,4 +1,4 @@
-// src/pages/Services.js
+// src/pages/Services.jsx
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -18,11 +18,11 @@ const Services = () => {
     const updateAnimation = () => {
       const totalWidth = horizontal.scrollWidth;
       const viewportWidth = window.innerWidth;
-      const scrollDistance = totalWidth - viewportWidth;
       const viewportHeight = window.innerHeight;
+      const scrollDistance = totalWidth - viewportWidth;
 
-      // Set the container height to be the scroll distance plus the viewport height
-      gsap.set(container, { height: scrollDistance + viewportHeight });
+      // Set the container height to match the total scroll distance needed
+      gsap.set(container, { height: totalWidth });
 
       // Kill any existing animation and its ScrollTrigger
       if (tween) {
@@ -37,7 +37,7 @@ const Services = () => {
         scrollTrigger: {
           trigger: container,
           start: 'top top',
-          end: () => `+=${scrollDistance}`,
+          end: () => `+=${totalWidth}`,
           pin: true,
           scrub: true,
           anticipatePin: 1,

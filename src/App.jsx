@@ -1,4 +1,4 @@
-// src/App.js
+// src/App.jsx
 import { useEffect, useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import Navbar from './pages/Navbar';
@@ -9,7 +9,6 @@ import NewsEvents from './pages/NewsEvents';
 import OurImpact from './pages/OurImpact';
 import Services from './pages/Services';
 import Team from './pages/Team';
-import Tools from './pages/Tools';
 import AboutUs from './pages/AboutUs';
 import Home from './pages/Home';
 
@@ -62,9 +61,6 @@ const App = () => {
             </div>
             {/* No ref needed here */}
             <Services />
-            <div ref={(el) => (sections.current[3] = el)} id="tools">
-              <Tools />
-            </div>
             <div ref={(el) => (sections.current[4] = el)} id="our-impact">
               <OurImpact />
             </div>

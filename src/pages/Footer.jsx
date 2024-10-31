@@ -95,7 +95,6 @@ const Footer = () => {
             "Home",
             "About Us",
             "Services",
-            "Tools",
             "Our Impact",
             "Contact",
           ].map((link) => (
